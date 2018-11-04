@@ -15,7 +15,7 @@
 
 NAME = libft.a
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra
 INC = libft.h
 
 #------------------------------------FILE--------------------------------------#

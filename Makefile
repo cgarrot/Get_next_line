@@ -15,8 +15,9 @@
 
 NAME = get_next_line
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
-LIBFT = /libft/libft.a
+FLAGS = -Wall -Wextra
+LIBFT = ./libft/libft.a
+INC = $(LIBFT) get_next_line.h
 
 #------------------------------------FILE--------------------------------------#
 
@@ -44,7 +45,8 @@ $(NAME):
 	@printf "\033[36m |)    |  / \  / \  |__|_____________________|_____________|  / \  / \  |  /\033[0m\n"
 	@printf "\033[36m \____ | |   ()   | |______________________________________| |   ()   | |_/\033[0m\n"
 	@printf "\033[36m          \_/__\_/                                            \_/__\_/\033[0m\n"
-	@$(CC) $(FLAGS) $(SRC) -o $(NAME)
+	@+make -C libft/
+	@$(CC) $(FLAGS) $(SRC) -o $(NAME) -I $(INC) -L libft/ -lft
 
 clean:
 	@echo "\033[1m--------Supprimer les OBJECT-------\033[0m"
