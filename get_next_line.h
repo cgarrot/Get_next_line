@@ -6,7 +6,7 @@
 /*   By: cgarrot <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/11 22:18:33 by cgarrot      #+#   ##    ##    #+#       */
-/*   Updated: 2018/10/11 22:19:46 by cgarrot     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/06 15:45:15 by cgarrot     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,5 +18,11 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "./libft/libft.h"
+
+typedef struct	s_gnl
+{
+	char	*str;
+}				t_gnl;
+
 
 #endif

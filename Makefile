@@ -6,7 +6,7 @@
 #    By: cgarrot <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/10/10 19:59:22 by cgarrot      #+#   ##    ##    #+#        #
-#    Updated: 2018/10/11 22:21:22 by cgarrot     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/06 15:57:20 by cgarrot     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -15,9 +15,9 @@
 
 NAME = get_next_line
 CC = gcc
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
-INC = $(LIBFT) get_next_line.h
+INC = $(LIBFT)
 
 #------------------------------------FILE--------------------------------------#
 
@@ -31,7 +31,7 @@ SRC = $(addsuffix .c , $(FILES))
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRC) $(INC)
 	@printf "\033[36m                                ______________________________________\033[0m\n"
 	@printf "\033[36m                              / /-----------|  |----------| |--------- \ \033[0m\n"
 	@printf "\033[36m                            / /             |  |          | |           \ \033[0m\n"
@@ -46,15 +46,12 @@ $(NAME):
 	@printf "\033[36m \____ | |   ()   | |______________________________________| |   ()   | |_/\033[0m\n"
 	@printf "\033[36m          \_/__\_/                                            \_/__\_/\033[0m\n"
 	@+make -C libft/
-	@$(CC) $(FLAGS) $(SRC) -o $(NAME) -I $(INC) -L libft/ -lft
+	@$(CC) $(FLAGS) -o $(NAME) $(SRC) -I $(INC) -L libft/ -lft
 
 clean:
-	@echo "\033[1m--------Supprimer les OBJECT-------\033[0m"
 	@rm -f $(OBJ)
 
 fclean: clean
-	@echo "\033[1m--------Supprimer la libft.a-------\033[0m"
 	@rm -f $(NAME) 
 
 re: fclean all
-	@clear
