@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_next_line.h                                  .::    .:/ .      .::   */
+/*   ft_lstmap.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: cgarrot <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/10/11 22:18:33 by cgarrot      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/06 23:35:15 by cgarrot     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/10/14 17:51:44 by cgarrot      #+#   ##    ##    #+#       */
+/*   Updated: 2018/10/14 17:53:41 by cgarrot     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "./libft/libft.h"
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list	*result;
+	t_list	*head;
+	t_list	*elem;
 
-int		get_next_line(const int fd, char **line);
-
-# define BUFF_SIZE 100
-
-#endif
+	if (!lst || !f)
+		return (NULL);
+	elem = f(lst);
+	if (!(result = ft_lstnew(elem->content, elem->content_size)))
+		return (NULL);
+	lst = lst->next;
+	head = result;
+	while (lst)
+	{
+		elem = f(lst);
+		if (!(result->next = ft_lstnew(elem->content, elem->content_size)))
+			return (NULL);
+		result = result->next;
+		lst = lst->next;
+	}
+	return (head);
+}

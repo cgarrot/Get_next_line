@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_next_line.h                                  .::    .:/ .      .::   */
+/*   ft_lstnew.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: cgarrot <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/10/11 22:18:33 by cgarrot      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/06 23:35:15 by cgarrot     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/10/12 19:46:29 by cgarrot      #+#   ##    ##    #+#       */
+/*   Updated: 2018/10/13 15:18:24 by cgarrot     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "./libft/libft.h"
+t_list	*ft_lstnew(void const *content, size_t content_size)
+{
+	t_list	*new;
 
-int		get_next_line(const int fd, char **line);
-
-# define BUFF_SIZE 100
-
-#endif
+	if (!(new = (t_list*)malloc(sizeof(t_list) * 1)))
+		return (NULL);
+	if (content == NULL)
+	{
+		new->content = NULL;
+		new->content_size = 0;
+	}
+	else
+	{
+		if (!(new->content = malloc(content_size)))
+			return (NULL);
+		ft_memmove(new->content, content, content_size);
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
+}

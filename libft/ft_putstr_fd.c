@@ -6,7 +6,7 @@
 /*   By: cgarrot <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/06 06:18:39 by cgarrot      #+#   ##    ##    #+#       */
-/*   Updated: 2018/10/08 23:33:56 by cgarrot     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/10/12 16:09:08 by cgarrot     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,13 +15,6 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	int i;
-
-	i = 0;
 	if (s != 0)
-		while (s[i])
-		{
-			ft_putchar_fd(s[i], fd);
-			i++;
-		}
+		write(fd, s, ft_strlen(s));
 }
