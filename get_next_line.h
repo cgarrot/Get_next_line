@@ -6,7 +6,7 @@
 /*   By: cgarrot <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/11 22:18:33 by cgarrot      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/06 23:35:15 by cgarrot     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/09 21:38:45 by cgarrot     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,6 @@
 
 int		get_next_line(const int fd, char **line);
 
-# define BUFF_SIZE 100
+# define BUFF_SIZE 32
 
 #endif
