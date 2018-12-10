@@ -1,10 +1,3 @@
-/**
- * File              : get_next_line.c
- * Author            : Your Name
- * Date              : 10.11.2018
- * Last Modified Date: 10.11.2018
- * Last Modified By  : Your Name
- */
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
